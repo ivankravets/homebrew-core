@@ -88,6 +88,6 @@ class Platformio < Formula
     output = shell_output("#{bin}/platformio platform list 2>&1", 1).chomp
     assert_match "Espressif 32", output
     output = shell_output("#{bin}/pio boards ststm32 2>&1", 1).chomp
-    assert_match "ST Nucleo F401RE", output    
-  end  
+    assert_match "ST Nucleo F401RE", output
+  end
 end
