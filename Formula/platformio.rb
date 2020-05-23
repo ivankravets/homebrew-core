@@ -83,7 +83,7 @@ class Platformio < Formula
   def install
     virtualenv_install_with_resources
   end
-  
+
   test do
     output = shell_output("#{bin}/platformio platform list 2>&1", 1).chomp
     assert_match "Espressif 32", output
