@@ -83,10 +83,11 @@ class Platformio < Formula
   def install
     virtualenv_install_with_resources
   end
-
+  
   test do
-    system bin/"platformio"
-    system bin/"pio"
-    system bin/"piodebuggdb", "--help"
-  end
+    output = shell_output("#{bin}/platformio platform list 2>&1", 1).chomp
+    assert_match "Espressif 32", output
+    output = shell_output("#{bin}/pio boards ststm32 2>&1", 1).chomp
+    assert_match "ST Nucleo F401RE", output    
+  end  
 end
